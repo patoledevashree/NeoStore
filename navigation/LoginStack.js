@@ -5,6 +5,7 @@ import ForgetPassword from '../screens/ForgetPassword';
 import SetPassword from '../screens/SetPassword';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import RegisterStack from './RegisterStack';
 
 
 const Stack = createStackNavigator();
@@ -28,12 +29,12 @@ export default function LoginStack() {
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
-            fontWeight: 'bold',
            marginLeft:80,
             fontSize: 25
           },
           headerLeft: () => (
-            <Icon.Button name="ios-menu" size={25} color='white'  onPress={() => navigation.openDrawer()}></Icon.Button>) 
+            <Icon.Button name="ios-menu" size={30} color='white' backgroundColor={'#2874F0'}
+             onPress={() => navigation.openDrawer()}></Icon.Button>) 
         }} />
       <Stack.Screen name='ForgetPassword' component={ForgetPassword}
         options={{
@@ -51,6 +52,19 @@ export default function LoginStack() {
        <Stack.Screen name='SetPassword' component={SetPassword}
         options={{
           title: 'Set Password',
+          headerStyle: {
+            backgroundColor: '#2874F0',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+
+            fontSize: 25
+          },
+        }}
+      />
+      <Stack.Screen name='Register' component={RegisterStack}
+        options={{
+          title: 'Register',
           headerStyle: {
             backgroundColor: '#2874F0',
           },

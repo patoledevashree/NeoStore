@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, Button, TouchableOpacity, Keyboard,TouchableWithoutFeedback } from 'react-native';
+import {
+    View,
+    Text,
+    TextInput,
+    StyleSheet,
+    TouchableOpacity,
+    Keyboard,
+    TouchableWithoutFeedback
+} from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -16,6 +24,12 @@ const validationSchema = yup.object({
         .required()
         .matches('^[a-zA-Z0-9_]*$', 'Password can only contain alphanumeric.')
 })
+
+/**
+ * @author Devashree Patole
+ * @description This is  a Login ScreenPropTypes.
+ * @returns JSX of Login screen.
+ */
 
 export default function Login() {
     const navigation = useNavigation();
@@ -37,9 +51,14 @@ export default function Login() {
             Keyboard.dismiss();
         }}>
             <View style={styles.container}>
-                <Text style={styles.text}>Neo<Text style={{ color: '#2874F0' }}>Store</Text></Text>
+                <Text style={styles.text}>
+                    Neo<Text style={{ color: '#2874F0' }}>Store</Text>
+                </Text>
                 <Formik
-                    initialValues={{ userId: '', password: '' }}
+                    initialValues={{
+                        userId: '',
+                        password: ''
+                    }}
                     validationSchema={validationSchema}
                     onSubmit={values => {
                         console.log(values)
@@ -50,7 +69,8 @@ export default function Login() {
                             <View>
 
                                 <View style={{ marginBottom: 5 }}>
-                                    <FontAwesome style={{ position: 'relative', top: 35, left: 15 }} name='user' size={20} />
+                                    <FontAwesome style={{ position: 'relative', top: 35, left: 15 }}
+                                        name='user' color='#777' size={20} />
                                     <TextInput style={styles.input}
                                         placeholder='UserId'
                                         onChangeText={props.handleChange('userId')}
@@ -58,13 +78,14 @@ export default function Login() {
                                         onBlur={props.handleBlur('userId')}
 
                                     />
-                                    <Text style={styles.error}>{props.touched.userId && props.errors.userId}</Text>
+                                    <Text style={styles.error}>
+                                        {props.touched.userId && props.errors.userId}
+                                    </Text>
 
                                 </View>
                                 <View >
-                                    <FontAwesome style={{ position: 'relative', top: 35, left: 15 }} name='lock' size={20} />
-                                    {/* <View style={{flexDirection:'row',justifyContent:'flex-end'}}></View> */}
-
+                                    <FontAwesome style={{ position: 'relative', top: 35, left: 15 }}
+                                        name='lock' color='#777' size={20} />
                                     <TextInput style={styles.input}
                                         placeholder='Password'
                                         secureTextEntry={displayPassword}
@@ -74,9 +95,12 @@ export default function Login() {
                                     />
                                     <FontAwesome style={{ position: 'absolute', top: 35, right: 5 }}
                                         name={eye_icon} size={20}
+                                        color='#777'
                                         onPress={handleClick}
                                     />
-                                    <Text style={styles.error}>{props.touched.password && props.errors.password}</Text>
+                                    <Text style={styles.error}>
+                                        {props.touched.password && props.errors.password}
+                                    </Text>
                                 </View>
                                 <TouchableOpacity>
                                     <View style={styles.button}>
@@ -85,19 +109,23 @@ export default function Login() {
                                         }}>Login</Text>
                                     </View>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={()=>{navigation.navigate('ForgetPassword')}} >
+
+                                <TouchableOpacity onPress={() => { navigation.navigate('ForgetPassword') }} >
                                     <Text style={styles.underLineText}>Forget Password?</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity>
-                                    <View style={{ marginTop: 30, flexDirection: 'row' }}>
-                                        <View>
-                                            <Text style={styles.textInput}>Don't Have an Account?</Text>
-                                        </View>
+
+
+                                <View style={{ marginTop: 30, flexDirection: 'row' }}>
+                                    <View>
+                                        <Text style={styles.textInput}>Don't Have an Account?</Text>
+                                    </View>
+                                    <TouchableOpacity onPress={()=>{navigation.navigate('Register')}}>
                                         <View>
                                             <FontAwesome style={styles.icon} name='plus' size={40} color={'white'} />
                                         </View>
-                                    </View>
-                                </TouchableOpacity>
+                                    </TouchableOpacity>
+                                </View>
+
                             </View>
                         )
                     }

@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, Button, TouchableOpacity, Keyboard } from 'react-native';
+import {
+    View,
+    Text,
+    TextInput,
+    StyleSheet,
+    TouchableOpacity,
+    Keyboard
+} from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
+import RadioForm from 'react-native-simple-radio-button';
+import { useNavigation } from '@react-navigation/native';
 
 const validationSchema = yup.object({
     FirstName: yup
@@ -46,11 +54,19 @@ var radio_props = [
     { label: 'Female', value: 1 }
 ];
 
+/**
+ * @author Devashree Patole
+ * @description This screen for Registration purposePropTypes.
+ * @returns JSX of the Register screen
+ */
+
 export default function Register() {
     const [securePwd, setPassword] = useState(true);
-    const [secureCrfm , setCfrmPwd] = useState(true);
+    const [secureCrfm, setCfrmPwd] = useState(true);
     const [pwd_eyeStyle, setPwdIcon] = useState('eye-slash');
     const [crf_eyeStyle, setCrfmIcon] = useState('eye-slash');
+
+    const navigation = useNavigation();
 
     const handlePwdClick = () => {
 
@@ -72,10 +88,6 @@ export default function Register() {
         }
     }
 
-
-
-
-
     return (
         <ScrollView>
             <TouchableWithoutFeedback onPress={() => {
@@ -83,7 +95,9 @@ export default function Register() {
             }}>
                 <ScrollView>
                     <View style={styles.container}>
-                        <Text style={styles.text}>Neo<Text style={{ color: '#2874F0' }}>Store</Text></Text>
+                        <Text style={styles.text}>
+                            Neo<Text style={{ color: '#2874F0' }}>Store</Text>
+                        </Text>
                         <Formik
                             initialValues={{
                                 FirstName: '',
@@ -104,7 +118,9 @@ export default function Register() {
                                     <View>
 
                                         <View>
-                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }} name='user' size={20} />
+                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }}
+                                                name='user' size={20} color='#777'
+                                            />
                                             <TextInput style={styles.input}
                                                 placeholder='FirstName'
                                                 onChangeText={props.handleChange('FirstName')}
@@ -112,11 +128,15 @@ export default function Register() {
                                                 onBlur={props.handleBlur('FirstName')}
 
                                             />
-                                            <Text style={styles.error}>{props.touched.FirstName && props.errors.FirstName}</Text>
+                                            <Text style={styles.error}>
+                                                {props.touched.FirstName && props.errors.FirstName}
+                                            </Text>
 
                                         </View>
                                         <View>
-                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }} name='user' size={20} />
+                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }}
+                                                name='user' size={20} color='#777'
+                                            />
                                             <TextInput style={styles.input}
                                                 placeholder='LastName'
                                                 onChangeText={props.handleChange('LastName')}
@@ -124,12 +144,16 @@ export default function Register() {
                                                 onBlur={props.handleBlur('LastName')}
 
                                             />
-                                            <Text style={styles.error}>{props.touched.LastName && props.errors.LastName}</Text>
+                                            <Text style={styles.error}>
+                                                {props.touched.LastName && props.errors.LastName}
+                                            </Text>
 
                                         </View>
 
                                         <View>
-                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }} name='envelope' size={20} />
+                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }}
+                                                name='envelope' size={20} color='#777'
+                                            />
                                             <TextInput style={styles.input}
                                                 placeholder='Email'
                                                 onChangeText={props.handleChange('Email')}
@@ -137,14 +161,16 @@ export default function Register() {
                                                 onBlur={props.handleBlur('Email')}
 
                                             />
-                                            <Text style={styles.error}>{props.touched.Email && props.errors.Email}</Text>
+                                            <Text style={styles.error}>
+                                                {props.touched.Email && props.errors.Email}
+                                            </Text>
 
                                         </View>
 
                                         <View >
-                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }} name='lock' size={20} />
-                                            {/* <View style={{flexDirection:'row',justifyContent:'flex-end'}}></View> */}
-
+                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }}
+                                                name='lock' size={20} color='#777'
+                                            />
                                             <TextInput style={styles.input}
                                                 placeholder='Password'
                                                 secureTextEntry={securePwd}
@@ -153,15 +179,17 @@ export default function Register() {
                                                 onBlur={props.handleBlur('password')}
                                             />
                                             <FontAwesome style={{ position: 'absolute', top: 35, right: 5 }}
-                                                name={pwd_eyeStyle} size={20}
+                                                name={pwd_eyeStyle} size={20} color='#777'
                                                 onPress={handlePwdClick} />
-                                            <Text style={styles.error}>{props.touched.password && props.errors.password}</Text>
+                                            <Text style={styles.error}>
+                                                {props.touched.password && props.errors.password}
+                                            </Text>
                                         </View>
 
                                         <View >
-                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }} name='lock' size={20} />
-                                            {/* <View style={{flexDirection:'row',justifyContent:'flex-end'}}></View> */}
-
+                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }}
+                                                name='lock' size={20} color='#777'
+                                            />
                                             <TextInput style={styles.input}
                                                 placeholder='Confirm Password'
                                                 secureTextEntry={secureCrfm}
@@ -170,13 +198,17 @@ export default function Register() {
                                                 onBlur={props.handleBlur('confirmPwd')}
                                             />
                                             <FontAwesome style={{ position: 'absolute', top: 35, right: 5 }}
-                                                name={crf_eyeStyle} size={20}
+                                                name={crf_eyeStyle} size={20} color='#777'
                                                 onPress={handleClick} />
-                                            <Text style={styles.error}>{props.touched.confirmPwd && props.errors.confirmPwd}</Text>
+                                            <Text style={styles.error}>
+                                                {props.touched.confirmPwd && props.errors.confirmPwd}
+                                            </Text>
                                         </View>
 
                                         <View>
-                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }} name='user' size={20} />
+                                            <FontAwesome style={{ position: 'relative', top: 35, left: 15 }}
+                                                name='user' size={20} color='#777'
+                                            />
                                             <TextInput style={styles.input}
                                                 keyboardType={"numeric"}
                                                 placeholder='Phone Number'
@@ -185,7 +217,9 @@ export default function Register() {
                                                 onBlur={props.handleBlur('Phone')}
 
                                             />
-                                            <Text style={styles.error}>{props.touched.Phone && props.errors.Phone}</Text>
+                                            <Text style={styles.error}>
+                                                {props.touched.Phone && props.errors.Phone}
+                                            </Text>
 
                                         </View>
                                         <View style={{ flexDirection: 'row' }}>
@@ -210,8 +244,6 @@ export default function Register() {
 
                                         </View>
 
-
-
                                         <TouchableOpacity onPress={props.handleSubmit}>
                                             <View style={styles.button}>
                                                 <Text style={{
@@ -219,6 +251,16 @@ export default function Register() {
                                                 }}>Register</Text>
                                             </View>
                                         </TouchableOpacity>
+                                        <View style={{flexDirection:'row',marginLeft:10,marginTop:10}}>
+                                            <View>
+                                                <Text>Already have an Account?</Text>
+                                            </View>
+                                            <TouchableOpacity onPress={()=>{navigation.navigate('Login')}}>
+                                                <View>
+                                                    <Text style={styles.underLineText}>SignIn</Text>
+                                                </View>
+                                            </TouchableOpacity>
+                                        </View>
 
                                     </View>
                                 )
@@ -260,11 +302,12 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     underLineText: {
-        fontSize: 20,
+        fontSize: 18,
         textDecorationLine: 'underline',
-        color: '#d1ad88',
+        color: '#2874F0',
         fontWeight: 'bold',
-        marginTop: 20
+        paddingLeft:10
+       
     },
     textInput: {
         fontSize: 20,
