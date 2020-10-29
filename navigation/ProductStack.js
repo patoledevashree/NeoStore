@@ -8,7 +8,12 @@ import ProductDetailStack from './ProductDetailStack';
 import ProductDetail from '../screens/ProductDetail';
 
 const Stack = createStackNavigator();
-
+/**
+ * @author Devashree Patole
+ * @description This file provides the stack navigation of the
+ *              all Products and Product Detail screens.
+ * @returns JSX of the stack navigation
+ */
 export default function ProductStack(){
     const navigation = useNavigation();
     return(

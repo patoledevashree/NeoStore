@@ -5,6 +5,15 @@ import Toast from 'react-native-simple-toast';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import {Formik} from 'formik';
 
+
+/**
+ * @author Devashree Patole
+ * @description This screen contains the lIst of products which are present in cart
+ *              and also the total amout of the products.There ius also a button to place order
+ *              and to remove products from cart
+ * @returns JSX of cart Screen
+ */
+
 export default function Dashboard() {
     const cartItem = [
         {
@@ -24,26 +33,6 @@ export default function Dashboard() {
             product_cost: 20000
         },
     ]
-
-    const [count, setCount] = useState(1)
-
-    const incrementCount = () => {
-        if (count < 5) {
-            setCount(count + 1)
-        }
-        else {
-            Toast.show('Limit exceeded!!')
-        }
-    }
-
-    const decrementCount = () => {
-        if (count > 1) {
-            setCount(count - 1)
-        }
-        else {
-            Toast.show('Quantity must be 1')
-        }
-    }
 
     const removeItem = () => {
         Alert.alert('Remove Item', 'Do You ant to Remove Item from cart', [

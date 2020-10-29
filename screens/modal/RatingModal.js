@@ -3,7 +3,13 @@ import { View, Text, Modal, StyleSheet, TouchableOpacity, Button } from 'react-n
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import { AirbnbRating } from 'react-native-ratings';
 
-
+/**
+ * @author Devashree Patole
+ * @description This modal is for the user to rate the product if the user is logged in
+ * @param {object} visible It constains the visibility of the modal 
+ * @param {function} closeModal This function is call to close the modal
+ * @returns JSX of Modal
+ */
 export default function RatingModal({ visible, closeModal }) {
     const [rate, setRating] = useState(2)
     return (

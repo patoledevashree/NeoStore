@@ -18,7 +18,7 @@ import { useNavigation } from '@react-navigation/native';
 /**
  * @author Devashree Patole
  * @description This screen contains the top rated products,
- *              a search box and carousel of imagesPropTypes.
+ *              a search box and carousel of images.
  * @returns JSX of Dashboard
  */
 

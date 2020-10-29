@@ -6,7 +6,12 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Toast from 'react-native-simple-toast';
 import RatingModal from './modal/RatingModal'
 
-
+/**
+ * @author Devashree Patole
+ * @description This screen contains the product details Here the user can
+ *           buy product and also rate the product and can add product to cart
+ * @returns JSX of Product Detail screen
+ */
 export default function ProductDetail() {
     const [rate,setrating] =useState(false)
 

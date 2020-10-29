@@ -27,7 +27,7 @@ const validationSchema = yup.object({
 
 /**
  * @author Devashree Patole
- * @description This is  a Login ScreenPropTypes.
+ * @description This is  a Login Screen where user can login with username  and password.
  * @returns JSX of Login screen.
  */
 

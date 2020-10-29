@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, Modal, StyleSheet, TouchableOpacity,Button } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 
-
+/**
+ * @author Devashree Patole
+ * @description This is a modal which contains list of Categories of product 
+ *              for the user to select the categoty of product
+ *               and based on that the products will be filtered.
+ * @param {object} visible It constains the visibility of the modal 
+ * @param {function} closeModal This function is call to cxlose the modal
+ * @returns JSX of Modal
+ */
 export default function CategoryModal({ visible, closeModal }) {
 
     const [category, listCategory] = useState([

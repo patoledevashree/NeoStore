@@ -6,6 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
+/**
+ * @author Devashree Patole
+ * @description This file provides the stack navigation of the
+ *              ProductDetail screens.
+ * @returns JSX of the stack navigation
+ */
 export default function ProductDetailStack(){
     const navigation = useNavigation();
     return(

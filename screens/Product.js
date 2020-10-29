@@ -10,6 +10,13 @@ import { AirbnbRating, Rating } from 'react-native-ratings';
 import LottieView from 'lottie-react-native';
 import { useNavigation } from '@react-navigation/native';
 
+/**
+ * @author Devashree Patole
+ * @description This screen displayes the complete list of products.
+ *              The Products can also be filtered based on category,price,color and rating
+ * @returns JSX of Product Screen
+ */
+
 export default function Product() {
 
     const [detail, setDetail] = useState([
